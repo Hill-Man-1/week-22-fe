@@ -1,4 +1,4 @@
-# MILESTONE 3 FE
+# MILESTONE 4 FE
 
 ## Installation
 To run this project, you will need to install the necessary dependencies by running the following command in your terminal:
@@ -10,52 +10,53 @@ To run the application, execute the following command in your terminal:
 
 `npm start`
 
-By default, the application will be running on http://localhost:3000.
+By default, the application will be running on http://localhost:5000.
 
 ## Features
-- **User Authentication** : The project allows users to register and login using their credentials.
+- **User Authentication**: The project allows users to register and login using their credentials.
 - **Task Management** : Users can create, update, and get tasks.
-- **Admin Panel** : Admin users can perform user management operations like fetching all users, updating user data, getting a user by id, and deleting a user.
+- **Admin Panel**: Admin users can perform user management operations like fetching all users, updating user data, getting a user by id, and deleting a user.
 
 ## Folder Structure
 The project is organized into the following folders:
 
-- **pages** : Contains the pages for the application, including Login, Home, Task, TaskCreate, and User.
-- **components** : Contains the reusable components for the application, such as Header and Taskform.
-- **redux** : Contains the Redux store, slices, and reducers for user and task management.
-- **services** : Contains the API service for making HTTP requests to the server.
-- 
-## Pages and Components
-
-### Pages
-
-- **Login** : The login page for the application.
-- **Home** : The homepage for the application, showing the tasks for the user.
-- **Task** : The page for a specific task, showing the task details.
-- **TaskCreate** : The page for creating a new task.
-- **User** : The page for a specific user, showing the user details.
-
-### Components
-
-- **Header** : The header component for the application, showing the user name and picture, and providing a logout option.
-- **Taskform** : The form component for creating or updating a task.
-- **Userform** : The form component for updating a user.
+- **Controllers** : Contains the controllers for user and task management.
+- **data** : Contains the data for initial tasks.
+- **middlware** : Contains the middleware for verifying JWT tokens and authorizing admin access.
+- **models** : Contains the data models for tasks.
+- **public** : Contains the static files and assets.
+- **Routes** : Contains the routes for user, task, and admin endpoints.
 
 ## API Endpoints
 
-- **POST /auth/login** : Logs in a user and returns a JWT token.
-- **GET /auth/users** : Fetches all users (Admin access only).
+### User Routes
+
+- **POST /auth/login**: Logs in a user and returns a JWT token.
+- **GET /auth/users**: Fetches all users (Admin access only).
+- **PUT /auth/:id**: Updates user data by id (Admin access only).
+- **GET /auth/:id**: Gets user data by id (Admin access only).
+- **DELETE /auth/:id**: Deletes a user by id (Admin access only).
+
+### Task Routes
+
 - **POST /task/create** : Creates a new task for a user.
+- **PUT /task/:id** : Updates a task by id.
 - **GET /task/:id** : Gets a task by id.
+- **GET /task/** : Gets all tasks for a user.
+
+### Admin Routes
+
 - **GET /admin/users** : Fetches all users.
+- **PUT /admin/:id** : Updates user data by id.
 - **GET /admin/:id** : Gets user data by id.
+- **DELETE /admin/:id** : Deletes a user by id.
 
 ## Technology Stack
 
-- **Frontend** : React.js, Material-UI, Redux, Formik, Yup
-- **Backend** : Node.js, Express (Refer to your backend README.md for more details)
-- **Database** : MongoDB (Refer to your backend README.md for more details)
+- **Backend** : Node.js, Express
+- **Database** : MongoDB
 - **Authentication** : JWT Tokens
+- **Middleware** : cors, cookie-parser, helmet, multer
 
 ## Contributing
 Contributions are welcome! If you find a bug or want to add a new feature, please create an issue or a pull request.
